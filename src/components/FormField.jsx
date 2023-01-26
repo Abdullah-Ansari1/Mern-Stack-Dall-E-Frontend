@@ -1,13 +1,13 @@
 import React from 'react'
 
 const FormField = ({
-  labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe
+  labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe,darkMode
 }) => {
   return (
     <div>
       <div className="flex items-center gap-2 mb-2">
         <label htmlFor={name}
-          className="block text-sm font-medium text-gray-900"
+          className={darkMode?"block text-sm font-medium text-gray-300":"block text-sm font-medium text-gray-900"}
         >
           {labelName}
         </label>

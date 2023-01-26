@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
-const CreatePost = () => {
+const CreatePost = ({darkMode}) => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: '',
@@ -78,8 +78,8 @@ const CreatePost = () => {
   return (
     <section className='max-w-7xl mx-auto'>
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w[500px]'>Creating imaginative and visually stunning images through Dall-E AI and share them with the community</p>
+        <h1 className="font-extrabold text-[32px]" style={darkMode?{color:"rgb(227 227 227)"}:{color:"#222328"}}>Create</h1>
+        <p className='mt-2 text-[16px] max-w[500px]' style={darkMode?{color:"rgb(227 227 227)"}:{color:"#666e75"}}>Creating imaginative and visually stunning images through Dall-E AI and share them with the community</p>
       </div>
       {/* Form */}
       <form onSubmit={handleSubmit} className="mt-16 max-w-3xl">
@@ -91,6 +91,7 @@ const CreatePost = () => {
             placeholder="Abdullah Ansari"
             value={form.name}
             handleChange={handleChange}
+            darkMode={darkMode}
           />
           <FormField
             labelName="Prompt"
@@ -101,6 +102,7 @@ const CreatePost = () => {
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
+            darkMode={darkMode}
           />
           {/* Image display */}
           <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
@@ -136,7 +138,7 @@ const CreatePost = () => {
         {/* ------------------------------------------- */}
         {/* Share Button */}
         <div className='mt-10'>
-          <p className='mt-2 text-[#666e75] text-[14px]'>Once you have created the image you want, you can share it with others in the community</p>
+          <p className='mt-2 text-[14px]' style={darkMode?{color:"rgb(227 227 227)"}:{color:"#666e75"}}>Once you have created the image you want, you can share it with others in the community</p>
           <button
             type='submit'
             disabled={loading ?true:false}
